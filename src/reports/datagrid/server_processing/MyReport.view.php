@@ -42,15 +42,18 @@ DataTables::create(array(
     <div style="margin-top:20px;">
 
     <?php
+    $request = Cake\Routing\Router::getRequest();
     DataTables::create(array(
         'name' => 'DataTable1',
         'dataSource' => function() {
             return $this->src('employees')
-            ->query('select * from salaries');
+            ->query('select * from employees_salaries');
             // ->query("select concat(e.first_name, ' ', e.last_name) as emp_name,
             // s.* from salaries s left join employees e on s.emp_no = e.emp_no");
         },
-        'scope' => $this->params,
+        'scope' => array_merge($this->params, [
+            'csrfToken' => $request->getAttribute('csrfToken')
+        ]),
         "options" => array(
             "searching" => true,
             "paging" => true,
@@ -69,7 +72,7 @@ DataTables::create(array(
         // ),
         "showFooter"=>true,
         "serverSide"=>true,
-        // "method"=>'post', //default method = 'get'
+        "method"=>'post', //default method = 'get'
     ));
     ?>
 </div>

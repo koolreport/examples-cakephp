@@ -42,7 +42,6 @@ return function (RouteBuilder $routes): void {
                 foreach ($section as $group_name => $group) {
                     foreach ($group as $sname => $surl) {
                         if (is_string($surl)) {
-                            // echo "surl: $surl<br>";
                             $surl = rtrim($surl, '/');
                             $builder->connect($surl, ['controller' => 'Home', 'action' => 'report'])->setMethods(['GET', 'POST']);
                             $builder->connect($surl . '/export', ['controller' => 'Home', 'action' => 'export'])->setMethods(['GET', 'POST']);
