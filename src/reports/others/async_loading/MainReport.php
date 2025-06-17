@@ -6,7 +6,7 @@ require "TopCustomersReport.php";
 class MainReport extends \koolreport\KoolReport
 {
     
-    use \koolreport\clients\jQuery;
+
     use \koolreport\core\SubReport;
     
     function settings()
