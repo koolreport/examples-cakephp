@@ -2,7 +2,6 @@
 
 use \koolreport\widgets\koolphp\Table;
 use Cake\Routing\Router;
-
 $request = Router::getRequest();
 $csrfToken = $request->getAttribute('csrfToken');
 $currentPath = $_SERVER['REQUEST_URI'];

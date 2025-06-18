@@ -4,12 +4,8 @@ use \koolreport\drilldown\DrillDown;
 use \koolreport\processes\CopyColumn;
 use \koolreport\processes\DateTimeFormat;
 use \koolreport\widgets\google\ColumnChart;
-use Cake\Routing\Router;
-
-$request = Router::getRequest();
-$csrfToken = $request->getAttribute('csrfToken');
 ?>
-<meta name="csrfToken" content="<?= $csrfToken ?>" />
+<meta name="csrfToken" content="<?= \Cake\Routing\Router::getRequest()->getAttribute('csrfToken') ?>" />
 <div class="report-content">
     <div class="text-center">
         <h1>Sale By Time</h1>
@@ -135,7 +131,7 @@ $csrfToken = $request->getAttribute('csrfToken');
 <script type="text/javascript">
     $.ajaxSetup({
         headers: {
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrfToken"]')?.getAttribute('content')
+            'X-CSRF-TOKEN': $('meta[name="csrfToken"]').attr('content')
         }
     });
 </script>
