@@ -22,10 +22,5 @@ function getRootUrl()
 }
 
 $menu = json_decode(file_get_contents(realpath(dirname(__FILE__))."/../reports.json"),true);
-// echo "<pre>" . json_encode($menu, JSON_PRETTY_PRINT) . "</pre>";
-$root_url = getRootUrl();
-$root_url = str_replace("/webroot", "", $root_url);
-// $root_url = "/htdocs/KoolReport/GitHub-examples";
-// $root_url = "/htdocs/testCodeIgniter/public";
-// $root_url = url('http://cakephpexamples.local');
-// echo "root_url=$root_url<br>";
+// $root_url = getRootUrl();
+$root_url = \Cake\Routing\Router::url('/', true);
